@@ -43,8 +43,11 @@ def substitute(bot, update):
 
 def divide(bot, update):
     param = update.message.text.replace('/divide', '').split()
-    result = int(param[0])/int(param[1])
-    update.message.reply_text("Result: {}".format(int(result)))
+    try:
+        result = int(param[0])/int(param[1])
+        update.message.reply_text("Result: {}".format(int(result)))
+    except:
+        update.message.reply_text('Division by null is prohibited')
 
 def multiply(bot, update):
     param = update.message.text.replace('/multiply', '').split()
@@ -52,7 +55,7 @@ def multiply(bot, update):
     update.message.reply_text("Result: {}".format(result))
 
 def help(bot, update):
-    update.message.reply_text('Check this out our bot options: \n /start \n /hello \n /bop')
+    update.message.reply_text('Bot options: \n /start \n /hello \n /bop - Let the Universe find a dog for today')
     
 def main():
     updater = Updater('871029123:AAERML8MxToRXD_zVAbe5Ek2yzYrI-bcmTI')
